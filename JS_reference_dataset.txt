@@ -1,0 +1,27 @@
+//Description:
+
+// This code loads a feature collection called Drew_County_Reference_dataset 
+// from the Earth Engine asset library. 
+
+// The code then filters the feature collection to create two new feature collections: 
+// Forest and Non_forest. The Forest feature collection contains all of the features 
+// in the original feature collection with a Class value of 2, 
+// which indicates that they are forest areas. The Non_forest feature collection contains
+// all of the features in the original feature collection with a Class value of 1, 
+// which indicates that they are non-forest areas.
+
+// The code then prints the two new feature collections to the console. 
+// Finally, the code adds the two feature collections to the map, 
+// with the Forest feature collection colored green
+// and the Non_forest feature collectioncolored yellow.
+
+var Drew_County_Reference_dataset = ee.FeatureCollection("projects/ee-uam/assets/Drew_County_Reference_dataset");
+
+var Forest = table.filterMetadata('Class','equals',2)
+var Non_forest = table.filterMetadata('Class','equals',1)
+
+print(Forest)
+print(Non_forest)
+
+Map.addLayer(Forest, {color: 'green', size: 5});
+Map.addLayer(Non_forest, {color: 'yellow', size: 5});
