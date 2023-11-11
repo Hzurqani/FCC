@@ -17,8 +17,8 @@
 
 var Drew_County_Reference_dataset = ee.FeatureCollection("projects/ee-uam/assets/Drew_County_Reference_dataset");
 
-var Forest = table.filterMetadata('Class','equals',2)
-var Non_forest = table.filterMetadata('Class','equals',1)
+var Forest = Drew_County_Reference_dataset.filterMetadata('Class','equals',2)
+var Non_forest = Drew_County_Reference_dataset.filterMetadata('Class','equals',1)
 
 print(Forest)
 print(Non_forest)
